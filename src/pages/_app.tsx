@@ -1,6 +1,6 @@
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import React from 'react'
-import '@/styles/globals.css'
+import '../styles/globals.css'
 import RootLayout from '../components/Layout'
 
 interface AppProps {
