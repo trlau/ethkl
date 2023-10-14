@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { Card } from '../../components/Card'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -43,6 +44,10 @@ export default function Home() {
           priority
         />
       </div>
+      
+      <Card>
+        This  is a testing card
+      </Card>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
