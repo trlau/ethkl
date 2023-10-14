@@ -1,5 +1,9 @@
-import Card from '@/components/Card';
-import Button from '@/components/Button';
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import React from 'react'
+import Card from '../components/Card';
+import Button from '../components/Button';
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
