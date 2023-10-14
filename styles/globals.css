@@ -2,26 +2,267 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Solanel", sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: black;
+  -ms-overflow-style: none; /* IE and Edge */
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+/* Custom Text Gradient, dont remove this is for the text */
+.text-gradient {
+  background: linear-gradient(90deg, #32612D, #354A21);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Global Variables */
+:root {
+  --secondary-glow: conic-gradient(
+    from 70deg at 50% 50%,
+    #98BF64 0deg,
+    #5DBB63 160deg,
+    /* Change color here */ transparent 360deg
+  );
+  --third-glow: conic-gradient(
+    from 90deg at 50% 50%,
+    #5DBB63 90deg,
+    #98BF64 120deg,
+    transparent 250deg
+  );
+}
+
+/* Gradient Styling */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  opacity: 0.8;
+}
+
+body::before {
+  background: var(--third-glow);
+  border-radius: 50%;
+  width: 50vw;
+  height: 50vw;
+  margin-left: -200px;
+  filter: blur(90px);
+  top: calc(64vh - 50vw / 2);
+  left: calc(50vw);
+}
+
+body::after {
+  background: var(--secondary-glow);
+  border-radius: 50%;
+  width: 500px;
+  height: 700px;
+  filter: blur(90px);
+  top: calc(64vh - 50vw / 2);
+  left: calc(64vh - 50vw / 2);
+}
+
+/* Keyframes for Animation */
+@keyframes animateBefore {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(200px) scale(0.8);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@keyframes animateAfter {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-250px) scale(1.2);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
+
+/* Applying the Animations */
+body::before {
+  animation: animateBefore 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
+
+body::after {
+  animation: animateAfter 7s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
+
+/* Hide the default scrollbar */
+::-webkit-scrollbar {
+  width: 0.5em; /* Width of the hidden scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Make the track (background) transparent */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Make the thumb (the draggable part) transparent */
+}
+
+.nav-text {
+  opacity: 0.8;
+}
+
+.nav-text:hover {
+  opacity: 1; /* Change opacity to 1 on hover */
+}
+
+.nftCard {
+  z-index: 30; /*make it infront and not blend to the background*/
+  background-color: #1b1622;
+  border-radius: 15px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.nftImg {
+  width: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  transition: 0.1s all ease-in-out;
+}
+
+.nftImg:hover {
+  transform: scale(1.05);
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+.nftContainer {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(270px, 1fr)
+  ); /* Adjust the minimum width and column count as needed */
+  grid-gap: 15px; /* Add spacing between NFTs */
+}
+
+/* styles/Modal.css */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.06); /* 0% opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.6rem 3rem;
+  border: 3px solid black;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.message {
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0;
+}
+.btn {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background: white;
+  padding: 0.3rem 3.4rem;
+  border: 3px solid black;
+  border-radius: 15px;
+  margin-right: 2.6rem;
+  box-shadow: 0 0 0 black;
+  transition: all 0.2s;
+}
+
+.btn:last-child {
+  margin: 0;
+}
+
+.btn:hover {
+  box-shadow: 0.4rem 0.4rem 0 black;
+  transform: translate(-0.4rem, -0.4rem);
+}
+
+.btn:active {
+  box-shadow: 0 0 0 black;
+  transform: translate(0, 0);
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scrolled-header {
+  background-color: rgba(0, 0, 0, 0.05); /* Semi-transparent white background */
+  backdrop-filter: blur(25px); /* Apply a blur effect */
+}
+
+.solanaToken {
+  z-index: 9999;
+}
+
+/* Modal cart */
+.nftImgModal {
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  width: 300px;
+}
+
+.cart {
+  background-color: #1b1622;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.arrow {
+  border: solid #14f195;
+  border-width: 0 10px 10px 0;
+  display: inline-block;
+  padding: 10px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+/* 
+.governanceCard{
+  z-index: 30; 
+  border-radius: 15px;
+  text-align: center;
+  overflow: hidden;
+} */
