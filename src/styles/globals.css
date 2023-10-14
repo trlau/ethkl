@@ -33,12 +33,12 @@ body {
     #5DBB63 160deg,
     /* Change color here */ transparent 360deg
   );
-  --third-glow: conic-gradient(
+  /* --third-glow: conic-gradient(
     from 90deg at 50% 50%,
     #5DBB63 90deg,
     #98BF64 120deg,
     transparent 250deg
-  );
+  ); */
 }
 
 /* Gradient Styling */

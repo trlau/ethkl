@@ -16,22 +16,22 @@ const Header = () => {
               className="w-20 md:w-15"
               alt="logo"
             />
-            <p className="text-2xl font-bold ml-2 text-gradient z-10">
+            {/* <p className="text-2xl font-bold ml-2 text-gradient z-10">
               ZKJ0M
-            </p>
+            </p> */}
           </div>
         </Link>
         
         <div className="flex items-center"> {/* Added "items-center" class */}
           <Link href="/verification">
-            <div className="items-center">
+            <div className="items-center" style={{ height: "40px" }}>
               <p className="text-xl font-bold ml-2 nav-text pr-2 z-10">
                 Verification
               </p>
             </div>
           </Link>
           <Link href="/dashboard">
-            <div className="items-center">
+            <div className="items-center" style={{ height: "40px" }}>
               <p className="text-xl font-bold ml-2 nav-text pr-2 z-10">
                 Dashboard
               </p>
