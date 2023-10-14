@@ -21,8 +21,10 @@ const Header = () => {
             </p> */}
           </div>
         </Link>
-        
-        <div className="flex items-center"> {/* Added "items-center" class */}
+
+        <div className="flex items-center">
+          {" "}
+          {/* Added "items-center" class */}
           <Link href="/verification">
             <div className="items-center" style={{ height: "40px" }}>
               <p className="text-xl font-bold ml-2 nav-text pr-2 z-10">
@@ -38,9 +40,12 @@ const Header = () => {
             </div>
           </Link>
           <div className="items-center">
-            <Button> {/* Use the Button component here */}
+            <Link href="/betNow">
+              <Button>
+                {/* Use the Button component here */}
                 Bet Now
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
