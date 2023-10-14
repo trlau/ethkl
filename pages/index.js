@@ -1,4 +1,5 @@
 import Card from '@/components/Card';
+import Button from '@/components/Button';
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
             <Card>
               This is a testing card.
             </Card>
+            <Button>
+              Button
+            </Button>
           </div>
           </a>
         </div>

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -13,8 +12,8 @@ const Header = () => {
             <Image
               width={36}
               height={36}
-              src="/favicon.ico"
-              className="w-8 md:w-9"
+              src="/zkJ0M.png"
+              className="w-20 md:w-15"
               alt="logo"
             />
             <p className="text-2xl font-bold ml-2 text-gradient z-10">
@@ -22,16 +21,15 @@ const Header = () => {
             </p>
           </div>
         </Link>
-        {publicKey ? (
           <div className="flex">
-            <Link href="/mainPage">
+            <Link href="/verification">
               <div className="items-center">
                 <p className="text-xl font-bold ml-2 nav-text pr-2 z-10">
-                  Main Page
+                  Verification
                 </p>
               </div>
             </Link>
-            <Link href="/governance">
+            <Link href="/dashboard">
               <div className="items-center">
                 <p className="text-xl font-bold ml-2 nav-text pl-2 z-10">
                   Dashboard
@@ -39,10 +37,9 @@ const Header = () => {
               </div>
             </Link>
           </div>
-        ) : null}
 
         <div className="flex flex-wrap justify-end">
-          <WalletMultiButton />
+          Bet Now
         </div>
       </div>
     </header>
