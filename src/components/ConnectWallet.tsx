@@ -38,7 +38,7 @@ function ConnectWallet({
         </>
       );
     } else {
-      return "Get your Wallet";
+      return "Deposit Your Bet";
     }
   };
 

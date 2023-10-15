@@ -20,7 +20,7 @@ const BettingPage: React.FC = () => {
       <div className="flex">
         <div className="mr-10">
           <img src="angela.png" alt="Angela" className="w-48 h-48" />
-          <p className="text-center mt-4 text-xl">Feather</p>
+          <p className="text-center mt-4 text-xl">Angel</p>
         </div>
 
         <div className="flex flex-col border p-6 rounded-lg bg-white shadow-lg">
