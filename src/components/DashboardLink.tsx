@@ -6,7 +6,6 @@ function DashboardLink() {
         <Link href="/dashboard">
             <div className="items-center cursor-pointer">
                 <p className="text-xl font-bold ml-2 nav-text pl-2 z-10">
-                    Governance
                 </p>
             </div>
         </Link>

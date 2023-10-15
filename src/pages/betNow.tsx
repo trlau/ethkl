@@ -1,48 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
-function betNow() {
-    const [selectedHorse, setSelectedHorse] = useState<string | null>(null);
-    const [betAmount, setBetAmount] = useState<string>('');
-
-    const handleHorseSelect = (horseName: string) => {
-        setSelectedHorse(horseName);
-    };
-
-    const handleBet = () => {
-        // Handle the bet logic here
-    };
-
+const BetNow: React.FC = () => {
     return (
-        <div>
-            {selectedHorse === null ? (
-                <div>
-                    <Link href="/dashboard">
-                        <div className="items-center">
-                        </div>
-                    </Link>
-
-                    <div onClick={() => handleHorseSelect('Feather')} className={selectedHorse === 'Feather' ? 'border-green-500' : ''}>
-                        <img src="angela.png" alt="Feather" />
+        <div className="flex flex-col items-center space-y-4 mt-10">
+            <h1 className="text-2xl font-bold mb-4">Who will win at Nigata, 11:35?</h1>
+            
+            <div className="flex space-x-4">
+                <Link href="/angel">
+                    <div className="border-2 border-transparent p-2 cursor-pointer hover:border-green-500">
+                        <img src="angela.png" alt="Angela" className="w-48 h-48"/>
+                        <p className="text-center mt-2">Angela</p>
                     </div>
-                    <div onClick={() => handleHorseSelect('Nightmare')} className={selectedHorse === 'Nightmare' ? 'border-green-500' : ''}>
-                        <img src="nightmare.png" alt="Nightmare" />
-                    </div>
-                    <button onClick={handleBet}>Bet</button>
+                </Link>
+                
+                <div className="border-2 border-transparent p-2">
+                    <img src="nightmare.png" alt="Nightmare" className="w-48 h-48"/>
+                    <p className="text-center mt-2">Nightmare</p>
                 </div>
-            ) : (
-                <div>
-                    <img src={selectedHorse === 'Feather' ? 'angela.png' : 'nightmare.png'} alt={selectedHorse} />
-                    <div>
-                        <div>My Wallet</div>
-                        <div>Current Balance: 821 SOL</div>
-                        <input type="number" value={betAmount} onChange={(e) => setBetAmount(e.target.value)} />
-                        <button onClick={handleBet}>Confirm</button>
-                    </div>
-                </div>
-            )}
+            </div>
+            
+            <div className="mt-4">
+                <Link href="/angel">
+                    <button className="bg-green-500 text-white p-2 rounded cursor-pointer">
+                        Bet
+                    </button>
+                </Link>
+            </div>
+            
+            <div className="mt-4 text-black"> Don't see your horse here? </div>
+            <div className="mt-4 text-green-500 underline cursor-pointer">
+                <Link href="/dashboard">
+                    <p>
+                        Click here to check other betting proposals recommended for you.
+                    </p>
+                </Link>
+            </div>
         </div>
     );
 }
 
-export default betNow;
+export default BetNow;

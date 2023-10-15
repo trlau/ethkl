@@ -64,7 +64,7 @@ const Dashboard = () => {
           Feather
         </div>
         <div className="horse-card text-center w-1/4 font-bold">
-          <img src="/angel.png" alt="Angel" className="horse-img w-32 h-32 mx-auto mb-2 transition-transform duration-300 hover:scale-105 rounded-md" />
+          <img src="/angela.png" alt="Angel" className="horse-img w-32 h-32 mx-auto mb-2 transition-transform duration-300 hover:scale-105 rounded-md" />
           Angel
         </div>
         <div className="horse-card text-center w-1/4 font-bold">
