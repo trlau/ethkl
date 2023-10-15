@@ -1,10 +1,36 @@
 import React from 'react';
 import Image from 'next/image';
+import { useState } from "react";
+import zkjom_contracts from "../../zkjom_contracts/build/main.aleo?raw";
+import { AleoWorker } from "../workers/AleoWorker.js";
+
 
 // Assuming you have a Button component in the components folder
 import Button from '../components/Button';
+const aleoWorker = AleoWorker();
 
 const CreateBet: React.FC = () => {
+    const [count, setCount] = useState(0);
+    const [account, setAccount] = useState(null);
+    const [executing, setExecuting] = useState(false);
+  
+    const generateAccount = async () => {
+
+    };
+  
+    async function execute() {
+      setExecuting(true);
+      const key = await aleoWorker.getPrivateKey();
+      setAccount(await key.to_string());
+      const result = await aleoWorker.localProgramExecution(
+        zkjom_contracts,
+        "main",
+        ["5u32", "5u32"],
+      );
+      setExecuting(false);
+  
+      alert(JSON.stringify(result));
+    }
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
           <h1 className="text-2xl font-bold mb-4">What type of bet are you opting for?</h1>

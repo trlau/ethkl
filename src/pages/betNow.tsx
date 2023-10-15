@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Button from '../components/Button';
 
 const BetNow: React.FC = () => {
     return (
@@ -22,9 +23,9 @@ const BetNow: React.FC = () => {
             
             <div className="mt-4">
                 <Link href="/angel">
-                    <button className="bg-green-500 text-white p-2 rounded cursor-pointer">
+                    <Button>
                         Bet
-                    </button>
+                    </Button>
                 </Link>
             </div>
             
