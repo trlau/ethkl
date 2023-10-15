@@ -11,14 +11,14 @@ const Dashboard = () => {
         
         <div className="balance-card bg-white p-4 rounded-md shadow-md mb-4">
           <div className="balance font-medium">
-            Current Balance: <span className="text-black-500">821 SOL (+18.50)</span>
+            Current Balance: <span className="text-black-500">821 USDC (+18.50)</span>
           </div>
         </div>
         
         <div className="stats flex justify-between">
-          <div className="win text-green-500">Total Win: 368 SOL</div>
+          <div className="win text-green-500">Total Win: 368 USDC</div>
           <img src="/up.png" alt="Up" className="w-8 h-8" />
-          <div className="loss text-red-500">Total Loss: 188 SOL</div>
+          <div className="loss text-red-500">Total Loss: 188 USDC</div>
         </div>
         
         <button className="top-up-btn mt-4 w-full bg-black text-white py-2 px-4 rounded-md hover:bg-green-600 transition-colors duration-300">

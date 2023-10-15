@@ -18,7 +18,7 @@ const BettingPage: React.FC = () => {
 
                     <div className="mb-4">
                         <label className="block text-sm font-medium mb-2">Current Balance</label>
-                        <p className="border p-2 rounded">821 SOL</p>
+                        <p className="border p-2 rounded">821 USDC</p>
                     </div>
 
                     <div className="mb-6">
