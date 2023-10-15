@@ -15,14 +15,14 @@ function BettingPage({ selectedHorse }: Props) {
             <img src={selectedHorse.src} alt={selectedHorse.name} />
             <div className="mt-4">
                 <label>My Wallet</label>
-                <div>Current Balance: 821 SOL</div>
+                <div>Current Balance: 821 USDC</div>
                 <div>
                     Betting Amount:
                     <input
                         type="number"
                         value={betAmount}
                         onChange={(e) => setBetAmount(parseInt(e.target.value))}
-                    /> SOL
+                    /> USDC
                 </div>
                 <button className="mt-2">Confirm</button>
             </div>
