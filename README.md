@@ -1,68 +1,40 @@
-# zkJ0M - Zero Knowledge Prediction Market
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Problem Statement 🏇📈
-In horse racing betting, the influence of team popularity on sentiment bias can greatly distort sports betting odds, leading to the potential misguidance of public bets and the creation of skewed markets. This problem is evident in traditional sports betting and can result in concerns about fair play, dissatisfaction with manipulated odds, and a desire for a transparent betting environment.
+## Getting Started
 
-*Source: Feddersen, A., Humphreys, B. R., & Sobbing, B. P. (2013). Sentiment Bias and Asset Prices: Evidence from Sports Betting Markets and Social Media.
+First, run the development server:
 
-## Solution 🎯
-Our zero knowledge prediction market, zkJ0M, mitigates sentiment bias, enabling fairer, uninfluenced betting, and fostering a transparent, trustworthy betting environment. It addresses the problems associated with traditional sports betting by providing a platform where users can bet on various outcomes without the influence of sentiment bias and manipulation, resulting in more equitable odds.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Primary Target Audience 🎯
-**Age Range:** 18-25 years
-**Interests:** Sports & Online Betting
-**Pain Points:** Concerns about fair play, dissatisfaction with manipulated odds, and a desire for a transparent betting environment.
-**Behavioral Traits:** Tech-savvy, active on social media platforms, engaged in online forums and communities related to betting and sports, and likely to utilize online betting platforms.
-**Demographic:** Millennial and Gen Z bettors
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Business Model 💼
-We charge fees from both proposing and betting parties when they cast their proposals/bets. While users can bet on a wide range of events, for demo purposes, we can use examples such as horse races, F1 races, and sports matches. The platform aims to address the issues of manipulation and bias that are often present in traditional sports betting.
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### Betting Process:
-1. **User Bets:**
-    - Place Bets: Users place bets on possible outcomes.
-    - Prize Pool: All bets contribute to a collective prize pool.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-2. **Determining Winners:**
-    - Outcome: Once the event concludes, the winning outcome is determined.
-    - Winners: Identify users who bet on the winning outcome.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-3. **Payout Distribution:**
-    - Calculate Share: Divide the total prize pool by the number of winning bets.
-    - Distribute Winnings: Pay out the calculated share to each winner.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-4. **Platform Commission:**
-    - Deduct Commission: Take a predetermined percentage from the prize pool as platform revenue.
-    - Net Prize Pool: The remaining amount is distributed among the winners.
+## Learn More
 
-**Example:**
-- Total Prize Pool: $10,000
-- Platform Commission: 10% ($1,000)
-- Net Prize Pool: $9,000
-- Winners: 90
-- Payout per Winner: $9,000 / 90 = $100
+To learn more about Next.js, take a look at the following resources:
 
-## Getting Started 🚀
-**Prerequisites:** [List any prerequisites for using your project or getting started with it.]
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-**Installation:**
-1. [Provide installation instructions if necessary.]
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-**Usage:**
-1. [Provide usage instructions for your project.]
+## Deploy on Vercel
 
-**Demo Link:**
-[Include a link to a demo of your project if available.]
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Contributors 🤝
-[List the contributors or team members who have worked on this project.]
-
-## License 📜
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments 🙏
-[Mention any references, tools, or resources you used or were inspired by in your project.]
-
----
-
-[Include any additional sections or details that are relevant to your project. You can also add links, images, or any other information that enhances the readme.md.]
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
