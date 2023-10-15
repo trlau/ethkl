@@ -7,15 +7,15 @@ export function useWalletContext() {
     setWallet,
     provider,
     setProvider,
-    counterContract,
-    setCounterContract,
+    PayoutContract,
+    setPayoutContract,
   } = useContext(WalletContext);
   return {
     wallet,
     setWallet,
     provider,
     setProvider,
-    counterContract,
-    setCounterContract,
+    PayoutContract,
+    setPayoutContract,
   };
 }

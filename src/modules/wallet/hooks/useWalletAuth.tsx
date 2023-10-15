@@ -9,15 +9,15 @@ import {
 import { useState } from "react";
 import { useWalletContext } from "./useWalletContext";
 import { ethers } from "ethers";
-import countContractAbi from "../../contract/counterABI.json";
+import countContractAbi from "../../contract/payoutABI.json";
 
 export function useWalletAuth() {
   const {
     setWallet,
     setProvider,
     wallet,
-    counterContract,
-    setCounterContract,
+    PayoutContract,
+    setPayoutContract,
   } = useWalletContext();
   const [isConnecting, setIsConnecting] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -25,7 +25,7 @@ export function useWalletAuth() {
   const [connectionError, setConnectionError] = useState<string | null>(null);
 
   const apiKey = process.env.NEXT_PUBLIC_COMETH_API_KEY;
-  const COUNTER_CONTRACT_ADDRESS = "0x3633A1bE570fBD902D10aC6ADd65BB11FC914624";
+  const PAYOUT_CONTRACT_ADDRESS = "0x3a4F982b855589C9cc9c8d31dc69cc785412f285";
 
   function displayError(message: string) {
     setConnectionError(message);
@@ -58,12 +58,12 @@ export function useWalletAuth() {
       const instanceProvider = new ComethProvider(instance);
 
       const contract = new ethers.Contract(
-        COUNTER_CONTRACT_ADDRESS,
+        PAYOUT_CONTRACT_ADDRESS,
         countContractAbi,
         instanceProvider.getSigner()
       );
 
-      setCounterContract(contract);
+      setPayoutContract(contract);
 
       setIsConnected(true);
       setWallet(instance as any);
@@ -82,7 +82,7 @@ export function useWalletAuth() {
         setIsConnected(false);
         setWallet(null);
         setProvider(null);
-        setCounterContract(null);
+        setPayoutContract(null);
       } catch (e) {
         displayError((e as Error).message);
       }
@@ -90,7 +90,7 @@ export function useWalletAuth() {
   }
   return {
     wallet,
-    counterContract,
+    PayoutContract,
     connect,
     disconnect,
     isConnected,
