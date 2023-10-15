@@ -54,8 +54,6 @@ export function Transaction({
     );
   }
 
-
-
   const sendTestTransaction = async () => {
     setTransactionSended(null);
     setTransactionResponse(null);
@@ -66,9 +64,9 @@ export function Transaction({
     try {
       if (!wallet) throw new Error("No wallet instance");
 
-      const tx: RelayTransactionResponse = await PayoutContract!.depositBet(0,{
-        value: ethers.utils.parseEther("0.05") // Sending 1 Ether along with the function call
-    });
+      const tx: RelayTransactionResponse = await PayoutContract!.depositBet(0, {
+        value: ethers.utils.parseEther("0.02"), // Sending 1 Ether along with the function call
+      });
       setTransactionSended(tx);
 
       const txResponse = await tx.wait();
