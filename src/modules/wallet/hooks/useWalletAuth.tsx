@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { useWalletContext } from "./useWalletContext";
 import { ethers } from "ethers";
-import countContractAbi from "../../contract/payoutABI.json";
+import payoutABI from "../../contract/payoutABI.json";
 
 export function useWalletAuth() {
   const {
@@ -59,7 +59,7 @@ export function useWalletAuth() {
 
       const contract = new ethers.Contract(
         PAYOUT_CONTRACT_ADDRESS,
-        countContractAbi,
+        payoutABI,
         instanceProvider.getSigner()
       );
 

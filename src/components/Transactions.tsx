@@ -9,6 +9,7 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import { RelayTransactionResponse } from "@cometh/connect-sdk";
 import { useWindowSize } from "../lib/ui/hooks/useWindowSize";
 import Confetti from "react-confetti";
+import { ethers } from "ethers";
 
 interface TransactionProps {
   transactionSuccess: boolean;
@@ -19,7 +20,7 @@ export function Transaction({
   transactionSuccess,
   setTransactionSuccess,
 }: TransactionProps) {
-  const { wallet, counterContract } = useWalletAuth();
+  const { wallet, PayoutContract } = useWalletAuth();
   const [isTransactionLoading, setIsTransactionLoading] =
     useState<boolean>(false);
   const [transactionSended, setTransactionSended] =
@@ -53,14 +54,7 @@ export function Transaction({
     );
   }
 
-  useEffect(() => {
-    if (wallet) {
-      (async () => {
-        const balance = await counterContract!.counters(wallet.getAddress());
-        setNftBalance(Number(balance));
-      })();
-    }
-  }, []);
+
 
   const sendTestTransaction = async () => {
     setTransactionSended(null);
@@ -72,13 +66,15 @@ export function Transaction({
     try {
       if (!wallet) throw new Error("No wallet instance");
 
-      const tx: RelayTransactionResponse = await counterContract!.count();
+      const tx: RelayTransactionResponse = await PayoutContract!.depositBet(0,{
+        value: ethers.utils.parseEther("0.05") // Sending 1 Ether along with the function call
+    });
       setTransactionSended(tx);
 
       const txResponse = await tx.wait();
 
-      const balance = await counterContract!.counters(wallet.getAddress());
-      setNftBalance(Number(balance));
+      // const balance = await PayoutContract!.Payout(wallet.getAddress());
+      // setNftBalance(Number(balance));
 
       setTransactionResponse(txResponse);
       setTransactionSuccess(true);
