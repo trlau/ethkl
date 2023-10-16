@@ -49,7 +49,7 @@ export function Transaction({
             <PlusIcon width={16} height={16} />
           </>
         )}{" "}
-        Increment counter
+        Make Bet
       </button>
     );
   }
@@ -65,7 +65,7 @@ export function Transaction({
       if (!wallet) throw new Error("No wallet instance");
 
       const tx: RelayTransactionResponse = await PayoutContract!.depositBet(0, {
-        value: ethers.utils.parseEther("0.02"), // Sending 1 Ether along with the function call
+        value: ethers.utils.parseEther("0.015"), // Sending 1 Ether along with the function call
       });
       setTransactionSended(tx);
 
